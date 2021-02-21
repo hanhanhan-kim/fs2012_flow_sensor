@@ -20,7 +20,6 @@ class DataReader(serial.Serial):
         self.thread.daemon = True
         self.running = False
         self.data = {}
-        print('hello')
 
     def receiver(self):
         done = False

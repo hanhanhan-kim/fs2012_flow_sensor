@@ -9,7 +9,7 @@ class DataReader(serial.Serial):
 
     ResetSleepDt = 0.5
     Baudrate = 115200
-    ThreadYieldDt = 0.0001
+    ThreadYieldDt = 0.005
 
     def __init__(self,port,timeout=10.0):
         param = {'baudrate': self.Baudrate, 'timeout': timeout}
@@ -25,6 +25,7 @@ class DataReader(serial.Serial):
         done = False
         while not done:
             line = []
+            time.sleep(self.ThreadYieldDt)
             with self.lock:
                 done = not self.running
             while self.in_waiting > 0:
@@ -42,7 +43,6 @@ class DataReader(serial.Serial):
                 flow_list = [self.raw_to_liter_per_min(x) for x in raw_list]
                 with self.lock:
                     self.data = {'t':t, 'flow': flow_list}
-            time.sleep(self.ThreadYieldDt)
 
     def stop(self):
         with self.lock:

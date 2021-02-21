@@ -31,6 +31,7 @@ class DataReader(serial.Serial):
                 done = not self.running
             while self.in_waiting > 0:
                 line = self.readline()
+            print('line: {}'.format(line))
             if line:
                 line = line.strip()
                 data = line.split(' ')

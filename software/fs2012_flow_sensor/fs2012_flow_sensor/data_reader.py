@@ -41,6 +41,7 @@ class DataReader(serial.Serial):
                 flow_list = [self.raw_to_liter_per_min(x) for x in raw_list]
                 with self.lock:
                     self.data = {'t':t, 'flow': flow_list}
+            time.sleep(0)
 
     def stop(self):
         with self.lock:
@@ -48,6 +49,8 @@ class DataReader(serial.Serial):
         self.thread.join()
 
     def start(self):
+        while self.in_waiting > 0:
+            line = self.readline()
         if not self.running:
             self.running = True
             self.thread.start()

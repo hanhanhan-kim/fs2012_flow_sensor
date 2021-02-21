@@ -25,13 +25,10 @@ class DataReader(serial.Serial):
         done = False
         while not done:
             line = []
-            time.sleep(self.ThreadYieldDt)
             with self.lock:
                 done = not self.running
-            print('in_waiting: {}'.format(self.in_waiting))
             while self.in_waiting > 0:
                 line = self.readline()
-            print('line: {}'.format(line))
             if line:
                 line = line.strip()
                 data = line.split(' ')
@@ -45,6 +42,7 @@ class DataReader(serial.Serial):
                 flow_list = [self.raw_to_liter_per_min(x) for x in raw_list]
                 with self.lock:
                     self.data = {'t':t, 'flow': flow_list}
+            time.sleep(self.ThreadYieldDt)
 
     def stop(self):
         with self.lock:

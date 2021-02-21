@@ -29,6 +29,7 @@ class DataReader(serial.Serial):
             time.sleep(self.ThreadYieldDt)
             with self.lock:
                 done = not self.running
+            print('in_waiting: {}'.format(self.in_waiting))
             while self.in_waiting > 0:
                 line = self.readline()
             print('line: {}'.format(line))

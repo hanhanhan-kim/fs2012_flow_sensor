@@ -15,12 +15,11 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8'
     ],
+    install_requires=['pyserial', 'matplotlib'],
     packages=find_packages(exclude=['examples',]),
-    scripts=['bin/flow_sensor_app', 'bin/flow_sensor_live_plot'],
+    scripts=['fs2012_flow_sensor/bin/flow_sensor_app', 'fs2012_flow_sensor/bin/flow_sensor_live_plot'],
 )

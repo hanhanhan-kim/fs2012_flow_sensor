@@ -1,6 +1,8 @@
-#!/usr/env python3
+#!/usr/bin/env python3
+
 import sys
-import ..fs2012_flow_sensor.live_plot
+from fs2012_flow_sensor import live_plot
+
 if len(sys.argv) > 1:
     port = sys.argv[1]
 else:

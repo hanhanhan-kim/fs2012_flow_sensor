@@ -19,7 +19,7 @@ cd fs2012_flow_sensor/software/fs2012_flow_sensor
 pip install -e .
 ```
 
-## DataReader Example
+## `DataReader` Example
 
 The below code snippet can be found in `examples/data_reader_example.py`:
 
@@ -36,9 +36,15 @@ for i in range(75):
 reader.stop()
 ```
 
-## Running the pyqt GUI 
+## Running the `pyqt` GUI 
+The script runs from anywhere:
 
 ```bash
-$python3 flow_sensor_app.py /dev/ttyUSB0
+flow_sensor_app /dev/ttyUSB0
 ```
 
+## Running the live plot
+The script runs from anywhere:
+```bash
+flow_sensor_live_plot
+```

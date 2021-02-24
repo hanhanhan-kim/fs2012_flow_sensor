@@ -4,9 +4,9 @@ import sys
 from PyQt5 import QtCore
 from PyQt5 import QtGui 
 from PyQt5 import QtWidgets
-from mainwindow_ui import Ui_MainWindow
 
-from data_reader import DataReader
+from fs2012_flow_sensor.mainwindow_ui import Ui_MainWindow
+from fs2012_flow_sensor.data_reader import DataReader
 
 class FlowSensorApp(QtWidgets.QMainWindow, Ui_MainWindow):
 

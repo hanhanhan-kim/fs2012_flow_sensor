@@ -61,7 +61,6 @@ class LivePlot(serial.Serial):
 
     def run(self):
 
-        self.write('b\n')
         self.running = True
 
         with open(self.data_file, 'w') as fid:
@@ -73,6 +72,8 @@ class LivePlot(serial.Serial):
                     have_data = True
                 if have_data:
                     line = line.strip()
+                    # Turn bytes to string, remove unicode:
+                    line = line.decode("UTF-8", "ignore") 
                     data = line.split(' ')
                     try:
                         t = 1.0e-3*int(data[0])
@@ -116,7 +117,6 @@ class LivePlot(serial.Serial):
                     print()
 
         print('quiting')
-        self.write('\n')
 
 
 

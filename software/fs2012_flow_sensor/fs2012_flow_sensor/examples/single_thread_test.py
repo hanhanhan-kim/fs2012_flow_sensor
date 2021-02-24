@@ -7,7 +7,7 @@ import signal
 
 class DataReader(serial.Serial):
 
-    ResetSleepDt = 0.5
+    ResetSleepDt = 2.0
     Baudrate = 115200
 
     def __init__(self,port,timeout=10.0):
@@ -21,6 +21,8 @@ class DataReader(serial.Serial):
             line = self.readline()
             if line:
                 line = line.strip()
+                # Turn bytes to string, remove unicode:
+                line = line.decode("UTF-8", "ignore") 
                 data = line.split(' ')
                 try:
                     t = 1.0e-3*int(data[0])
@@ -47,7 +49,7 @@ if __name__ == '__main__':
     else:
         port = '/dev/ttyUSB0'
     reader = DataReader(port)
-    for i in range(10):
+    for i in range(75):
         print(reader.get_data())
         time.sleep(0.1)
 

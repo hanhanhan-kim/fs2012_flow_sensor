@@ -13,36 +13,32 @@ Firmware, Python library, PyQt GUI for working with the FS2012 flow sensors.
 
 ## Installation
 
-
+Navigate to the directory that houses `setup.py` and install in editable mode:
 ```bash
-$python setup.py install
-```
-
-or
-
-```bash
-$python setup.py develop 
+cd fs2012_flow_sensor/software/fs2012_flow_sensor
+pip install -e .
 ```
 
 ## DataReader Example
+
+The below code snippet can be found in `examples/data_reader_example.py`:
 
 ```python
 import time
 from fs2012_flow_sensor import DataReader
 
-port = '/dev/ttyACM0'
+port = '/dev/ttyUSB0'
 reader = DataReader(port)
 reader.start()
-for i in range(10):
+for i in range(75):
     print(reader.get_data())
     time.sleep(0.1)
 reader.stop()
-
 ```
 
 ## Running the pyqt GUI 
 
 ```bash
-$python flow_sensor_app /dev/ttyACM0
+$python3 flow_sensor_app.py /dev/ttyUSB0
 ```
 

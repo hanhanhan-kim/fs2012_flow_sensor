@@ -7,7 +7,7 @@ import signal
 
 class DataReader(serial.Serial):
 
-    ResetSleepDt = 0.5
+    ResetSleepDt = 2.0
     Baudrate = 115200
     ThreadYieldDt = 0.005
 
@@ -31,6 +31,8 @@ class DataReader(serial.Serial):
                 line = self.readline()
             if line:
                 line = line.strip()
+                # Turn bytes to string, remove unicode:
+                line = line.decode("UTF-8", "ignore") 
                 data = line.split(' ')
                 try:
                     t = 1.0e-3*int(data[0])

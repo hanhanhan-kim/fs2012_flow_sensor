@@ -1,4 +1,4 @@
-# fs2012_flow_sensor  
+# FS2012 flow sensor  
 
 Firmware, Python library, PyQt GUI for working with the FS2012 flow sensors. Supports only **Python 3**. For a Python 2-compatible version of the software, see the [original repo](https://github.com/willdickson/fs2012_flow_sensor). 
 

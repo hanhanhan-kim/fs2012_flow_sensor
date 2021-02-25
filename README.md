@@ -1,9 +1,6 @@
 # fs2012_flow_sensor  
 
-Firmware, Python library, PyQt GUI for working with the FS2012 flow sensors. 
-
-![screenshot_1](images/flow_sensor_app.png)
-
+Firmware, Python library, PyQt GUI for working with the FS2012 flow sensors. Supports only **Python 3**. For a Python 2-compatible version of the software, see the [original repo](https://github.com/willdickson/fs2012_flow_sensor). 
 
 ## Requirements
 
@@ -37,14 +34,18 @@ reader.stop()
 ```
 
 ## Running the `pyqt` GUI 
-The script runs from anywhere:
+The script runs from anywhere, and outputs `flow_data.txt` in the current directory, if the "record" box is checked. Run with:
 
 ```bash
 flow_sensor_app /dev/ttyUSB0
 ```
 
+![app_demo](docs/flow_sensor_app.gif)
+
 ## Running the live plot
-The script runs from anywhere:
+The script runs from anywhere, and outputs `data.txt` in the current directory. Run with:
 ```bash
 flow_sensor_live_plot
 ```
+
+![live_plot_demo](docs/flow_sensor_live_plot.gif)

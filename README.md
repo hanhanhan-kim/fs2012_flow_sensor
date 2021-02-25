@@ -43,7 +43,7 @@ flow_sensor_app /dev/ttyUSB0
 ![app_demo](docs/flow_sensor_app.gif)
 
 ## Running the live plot
-The script runs from anywhere, and outputs `data.txt` in the current directory. Run with:
+The script runs from anywhere, and outputs `flow_data.csv` in the current directory. Run with:
 ```bash
 flow_sensor_live_plot
 ```

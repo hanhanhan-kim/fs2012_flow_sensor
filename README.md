@@ -37,7 +37,13 @@ reader.stop()
 The script runs from anywhere, and outputs `flow_data.txt` in the current directory, if the "record" box is checked. Run with:
 
 ```bash
-flow_sensor_app /dev/ttyUSB0
+flow_sensor_app
+```
+
+The script can accept an argument that specifies the path to the uC port. This argument is defaulted to `/dev/ttyUSB0`. If the above command fails, check that `/dev/ttyUSB0` is the correct port. If not, specify it like so:
+
+```bash
+flow_sensor_app /dev/<my_port>
 ```
 
 ![app_demo](docs/flow_sensor_app.gif)
@@ -47,5 +53,10 @@ The script runs from anywhere, and outputs `flow_data.csv` in the current direct
 ```bash
 flow_sensor_live_plot
 ```
+
+The script can accept an argument that specifies the path to the uC port. This argument is defaulted to `/dev/ttyUSB0`. If the above command fails, check that `/dev/ttyUSB0` is the correct port. If not, specify it like so:
+
+```bash
+flow_sensor_live_plot /dev/<my_port>
 
 ![live_plot_demo](docs/flow_sensor_live_plot.gif)

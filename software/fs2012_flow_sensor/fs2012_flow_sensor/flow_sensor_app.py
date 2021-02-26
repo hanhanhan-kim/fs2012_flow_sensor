@@ -67,8 +67,14 @@ class FlowSensorApp(QtWidgets.QMainWindow, Ui_MainWindow):
             lcd_number.setPalette(palette)
 
 def app_main():
+
+    if len(sys.argv) > 1:
+        port = sys.argv[1]
+    else:
+        port = '/dev/ttyUSB0'
+
     app = QtWidgets.QApplication(sys.argv)
-    mainWindow = FlowSensorApp(sys.argv[1])
+    mainWindow = FlowSensorApp(port=port)
     mainWindow.show()
     app.exec_()
 

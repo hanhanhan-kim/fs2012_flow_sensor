@@ -58,5 +58,6 @@ The script can accept an argument that specifies the path to the uC port. This a
 
 ```bash
 flow_sensor_live_plot /dev/<my_port>
+```
 
 ![live_plot_demo](docs/flow_sensor_live_plot.gif)
